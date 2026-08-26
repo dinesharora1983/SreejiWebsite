@@ -1,0 +1,22 @@
+{
+  "name": "sreeji-website",
+  "version": "1.0.0",
+  "description": "Static website for Sreeji Information Systems.",
+  "main": "index.html",
+  "scripts": {
+    "check": "node tests/smoke.mjs",
+    "test": "npm run check"
+  },
+  "keywords": [
+    "sreeji",
+    "enterprise-software",
+    "workflow-automation",
+    "ai-enablement"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.62.1"
+  }
+}

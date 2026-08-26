@@ -1,0 +1,4 @@
+node_modules/
+artifacts/
+assets/raw-captures/
+.DS_Store
