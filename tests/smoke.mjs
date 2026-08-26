@@ -43,6 +43,15 @@ try {
         throw new Error(`Legacy contact email found in ${pageName} ${viewport.name}`);
       }
 
+      if (!bodyText.includes("50 Raymond Road, Langley, Slough SL3 8LW, UK")) {
+        throw new Error(`UK office address is missing from ${pageName} ${viewport.name}`);
+      }
+
+      const ukPhoneLinks = await page.locator('a[href="tel:+447565657318"]').count();
+      if (!ukPhoneLinks) {
+        throw new Error(`UK office phone link is missing from ${pageName} ${viewport.name}`);
+      }
+
       const unnamedImages = await page.locator("img:not([alt])").count();
       if (unnamedImages) {
         throw new Error(`${pageName} ${viewport.name} contains images without alt attributes`);
