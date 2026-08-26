@@ -108,6 +108,7 @@ try {
       }
 
       await page.evaluate(async () => {
+        document.documentElement.style.scrollBehavior = "auto";
         const step = Math.max(300, Math.floor(window.innerHeight * 0.7));
         for (let y = 0; y <= document.documentElement.scrollHeight; y += step) {
           window.scrollTo(0, y);
@@ -116,6 +117,7 @@ try {
         window.scrollTo(0, 0);
       });
       await page.waitForLoadState("networkidle");
+      await page.waitForTimeout(900);
 
       const unloadedImages = await page.locator("img").evaluateAll((images) =>
         images
